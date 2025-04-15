@@ -10,26 +10,20 @@ yarn-error.log*
 
 # OS generated files
 .DS_Store
-Thumbs.db
 
 # Build output
 dist/
 
-# IDE specific files
+# IDE files
 .vscode/
 .idea/
-*.swp
-*.swo
 
 # Environment variables
 .env
-.env.local
 
-# Miscellaneous
-*.bak
+# Temporary files
 *.tmp
-*.temp
-*.old
+*.swp
 
 # Coverage reports
 coverage/
