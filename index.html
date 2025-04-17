@@ -5,7 +5,6 @@
     <title>Hand Tracking! • A-Frame</title>
     <meta name="description" content="Hand Tracking! • A-Frame">
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <script src="../../js/info-message.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.5.x/dist/aframe-environment-component.min.js"></script>
     <script src="pinchable.js"></script>
     <script src="color-change.js"></script>
@@ -17,9 +16,9 @@
     <script src="event-manager.js"></script>
   </head>
   <body>
-    <a-scene environment info-message="htmlSrc: #messageText">
+    <a-scene environment>
       <a-assets>
-        <a-asset-item id="messageText" src="message.html"></a-asset-item>
+        <a-asset-item id="bigMacModel" src="models/bigMac.gltf"></a-asset-item>
       </a-assets>
       <a-entity
         id="boxGeometry"
@@ -30,7 +29,15 @@
         size-change
         scale="0.5 0.5 0.5"
       ></a-entity>
-       <a-entity
+      <a-entity 
+        id="bigMac"
+        gltf-model="#bigMacModel"         
+        position="0 1.9 -1"
+        scale="1 1 1" 
+        rotation="0 180 0"
+        visible="false"
+      ></a-entity>
+      <a-entity
         id="torusGeometry"
         position="0 2.0 -1"
         rotation="45 45 0"
@@ -53,7 +60,7 @@
       <a-entity id="menu" menu position="0 1.5 -0.5" rotation="-45 0 0" event-manager>
         <a-entity slider position="0 0.10 0"></a-entity>
         <a-entity id="sphereButton" button="label: sphere" position="-0.15 0 0"></a-entity>
-        <a-entity id="boxButton" button="label: box" position="0 0 0"></a-entity>
+        <a-entity id="burgerButton" button="label: burger" position="0 0 0"></a-entity>
         <a-entity id="torusButton" button="label: torus" position="0.15 0 0"></a-entity>
         <a-entity id="darkModeButton" button="label: Dark Mode; width: 0.20; toggleable: true" position="0 -0.10 0"></a-entity>
       </a-entity>
