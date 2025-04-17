@@ -5,22 +5,22 @@ AFRAME.registerComponent('event-manager', {
     this.bindMethods();
 
     this.boxGeometryEl = document.querySelector('#boxGeometry');
-    this.sphereGeometryEl = document.querySelector('#sphereGeometry');
+    this.bigMacGeometryEl = document.querySelector('#bigMacGeometry');
     this.torusGeometryEl = document.querySelector('#torusGeometry');
 
     this.boxButtonEl = document.querySelector('#boxButton');
-    this.sphereButtonEl = document.querySelector('#sphereButton');
+    this.burgerButtonEl = document.querySelector('#burgerButton');
     this.torusButtonEl = document.querySelector('#torusButton');
     this.darkModeButtonEl = document.querySelector('#darkModeButton');
 
     this.buttonToGeometry = {
       'boxButton': this.boxGeometryEl,
-      'sphereButton': this.sphereGeometryEl,
+      'burgerButton': this.bigMacGeometryEl,
       'torusButton': this.torusGeometryEl
     };
 
     this.boxButtonEl.addEventListener('click', this.onClick);
-    this.sphereButtonEl.addEventListener('click', this.onClick);
+    this.burgerButtonEl.addEventListener('click', this.onClick);
     this.torusButtonEl.addEventListener('click', this.onClick);
     this.darkModeButtonEl.addEventListener('click', this.onClick);
     this.boxButtonEl.addState('pressed');
@@ -33,13 +33,13 @@ AFRAME.registerComponent('event-manager', {
   onClick: function (evt) {
     var targetEl = evt.target;
     if (targetEl === this.boxButtonEl ||
-        targetEl === this.sphereButtonEl ||
+        targetEl === this.burgerButtonEl ||
         targetEl === this.torusButtonEl) {
       this.boxButtonEl.removeState('pressed');
-      this.sphereButtonEl.removeState('pressed');
+      this.burgerButtonEl.removeState('pressed');
       this.torusButtonEl.removeState('pressed');
       this.boxGeometryEl.object3D.visible = false;
-      this.sphereGeometryEl.object3D.visible = false;
+      this.bigMacGeometryEl.object3D.visible = false;
       this.torusGeometryEl.object3D.visible = false;
       this.buttonToGeometry[targetEl.id].object3D.visible = true;
     }
