@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Hand Tracking! • A-Frame</title>
-    <meta name="description" content="Hand Tracking! • A-Frame">
+    <meta name="description" content="Hand Tracking A-Frame">
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.5.x/dist/aframe-environment-component.min.js"></script>
     <script src="pinchable.js"></script>
@@ -16,7 +16,7 @@
     <script src="event-manager.js"></script>
   </head>
   <body>
-    <a-scene environment>
+    <a-scene environment device-orientation-permission-ui="enabled: false">
       <a-assets>
         <a-asset-item id="bigMacModel" src="models/bigMac.gltf"></a-asset-item>
       </a-assets>
