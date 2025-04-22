@@ -14,9 +14,30 @@
     <script src="menu.js"></script>
     <script src="pressable.js"></script>
     <script src="event-manager.js"></script>
+    <style>
+      #enterExperienceButton {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px 40px;
+        font-size: 24px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1000;
+      }
+
+      #enterExperienceButton:hover {
+        background-color: #0056b3;
+      }
+    </style>
   </head>
   <body>
-    <a-scene environment device-orientation-permission-ui="enabled: false">
+    <button id="enterExperienceButton">Enter Experience</button>
+    <a-scene environment device-orientation-permission-ui="enabled: false" vr-mode-ui="enabled: false">
       <a-assets>
         <a-asset-item id="bigMacModel" src="models/bigMac.gltf"></a-asset-item>
       </a-assets>
@@ -67,5 +88,12 @@
       <a-entity hand-tracking-controls="hand: left"></a-entity>
       <a-entity hand-tracking-controls="hand: right"></a-entity>
     </a-scene>
+    <script>
+      document.getElementById('enterExperienceButton').addEventListener('click', function () {
+        const scene = document.querySelector('a-scene');
+        scene.enterVR();
+        this.style.display = 'none';
+      });
+    </script>
   </body>
 </html>
