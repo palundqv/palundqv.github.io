@@ -1,0 +1,11 @@
+Model Information:
+* title:	French fries from Poly by Google
+* source:	https://sketchfab.com/3d-models/french-fries-from-poly-by-google-ed31ca1893f544b2a966adc0cfaac9e6
+* author:	IronEqual (https://sketchfab.com/ie-niels)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "French fries from Poly by Google" (https://sketchfab.com/3d-models/french-fries-from-poly-by-google-ed31ca1893f544b2a966adc0cfaac9e6) by IronEqual (https://sketchfab.com/ie-niels) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
