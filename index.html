@@ -40,6 +40,7 @@
     <a-scene environment device-orientation-permission-ui="enabled: false" vr-mode-ui="enabled: false">
       <a-assets>
         <a-asset-item id="bigMacModel" src="models/bigMac.gltf"></a-asset-item>
+        <a-asset-item id="friesModel" src="models/friesModel/scene.gltf"></a-asset-item>
       </a-assets>
       <a-entity
         id="boxGeometry"
@@ -55,6 +56,14 @@
         gltf-model="#bigMacModel"         
         position="0 1.9 -1"
         scale="1 1 1" 
+        rotation="0 180 0"
+        visible="false"
+      ></a-entity>
+      <a-entity
+        id="friesGeometry"
+        gltf-model="#friesModel"
+        position="0 1.9 -1"
+        scale="0.5 0.5 0.5"
         rotation="0 180 0"
         visible="false"
       ></a-entity>
@@ -82,7 +91,7 @@
         <a-entity slider position="0 0.10 0"></a-entity>
         <a-entity id="burgerButton" button="label: burger" position="-0.15 0 0"></a-entity>
         <a-entity id="boxButton" button="label: box" position="0 0 0"></a-entity>
-        <a-entity id="torusButton" button="label: torus" position="0.15 0 0"></a-entity>
+        <a-entity id="friesButton" button="label: fries" position="0.15 0 0"></a-entity>
         <a-entity id="darkModeButton" button="label: Dark Mode; width: 0.20; toggleable: true" position="0 -0.10 0"></a-entity>
       </a-entity>
       <a-entity hand-tracking-controls="hand: left"></a-entity>
