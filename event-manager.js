@@ -4,26 +4,26 @@ AFRAME.registerComponent('event-manager', {
   init: function () {
     this.bindMethods();
 
-    this.boxGeometryEl = document.querySelector('#boxGeometry');
+    this.sodaCupGeometryEl = document.querySelector('#sodaCupGeometry');
     this.bigMacGeometryEl = document.querySelector('#bigMacGeometry');
     this.friesGeometryEl = document.querySelector('#friesGeometry');
 
-    this.boxButtonEl = document.querySelector('#boxButton');
+    this.sodaCupButtonEl = document.querySelector('#sodaCupButton');
     this.burgerButtonEl = document.querySelector('#burgerButton');
     this.friesButtonEl = document.querySelector('#friesButton');
     this.darkModeButtonEl = document.querySelector('#darkModeButton');
 
     this.buttonToGeometry = {
-      'boxButton': this.boxGeometryEl,
+      'sodaCupButton': this.sodaCupGeometryEl,
       'burgerButton': this.bigMacGeometryEl,
       'friesButton': this.friesGeometryEl
     };
 
-    this.boxButtonEl.addEventListener('click', this.onClick);
+    this.sodaCupButtonEl.addEventListener('click', this.onClick);
     this.burgerButtonEl.addEventListener('click', this.onClick);
     this.friesButtonEl.addEventListener('click', this.onClick);
     this.darkModeButtonEl.addEventListener('click', this.onClick);
-    this.boxButtonEl.addState('pressed');
+    this.burgerButtonEl.addState('pressed');
   },
 
   bindMethods: function () {
@@ -32,13 +32,13 @@ AFRAME.registerComponent('event-manager', {
 
   onClick: function (evt) {
     var targetEl = evt.target;
-    if (targetEl === this.boxButtonEl ||
+    if (targetEl === this.sodaCupButtonEl ||
         targetEl === this.burgerButtonEl ||
         targetEl === this.friesButtonEl) {
-      this.boxButtonEl.removeState('pressed');
+      this.sodaCupButtonEl.removeState('pressed');
       this.burgerButtonEl.removeState('pressed');
       this.friesButtonEl.removeState('pressed');
-      this.boxGeometryEl.object3D.visible = false;
+      this.sodaCupGeometryEl.object3D.visible = false;
       this.bigMacGeometryEl.object3D.visible = false;
       this.friesGeometryEl.object3D.visible = false;
       this.buttonToGeometry[targetEl.id].object3D.visible = true;
