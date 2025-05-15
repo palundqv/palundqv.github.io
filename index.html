@@ -42,6 +42,7 @@
         <a-asset-item id="bigMacModel" src="models/bigMac.gltf"></a-asset-item>
         <a-asset-item id="friesModel" src="models/friesModel/scene.gltf"></a-asset-item>
         <a-asset-item id="sodaCupModel" src="models/sodaCupFixed.glb"></a-asset-item>
+        <a-asset-item id="menuButtonSmall" src="models/MenuButtonSmall.glb"></a-asset-item>
       </a-assets>
       <a-entity
         id="sodaCupGeometry"
@@ -50,7 +51,7 @@
         rotation="0 90 0"
         size-change
         scale="0.5 0.5 0.5"
-        visible="true"
+        visible="false"
       ></a-entity>
       <a-entity 
         id="bigMacGeometry"
@@ -59,7 +60,7 @@
         size-change
         scale="0.5 0.5 0.5"
         rotation="0 180 0"
-        visible="false"
+        visible="true"
       ></a-entity>
       <a-entity
         id="friesGeometry"
@@ -73,7 +74,7 @@
       <a-entity id="menu" menu position="0 1.5 -0.5" rotation="-45 0 0" event-manager>
         <a-entity slider position="0 0.10 0"></a-entity>
         <a-entity id="burgerButton" button="label: Burger" position="0 0 0"></a-entity>
-        <a-entity id="sodaCupButton" button="label: Soda" position="-0.15 0 0"></a-entity>
+        <a-entity id="sodaCupButton" button="label: Soda; model: #menuButtonSmall" position="-0.15 0 0"></a-entity>
         <a-entity id="friesButton" button="label: Fries" position="0.15 0 0"></a-entity>
         <a-entity id="darkModeButton" button="label: Dark Mode; width: 0.20; toggleable: true" position="0 -0.10 0"></a-entity>
       </a-entity>

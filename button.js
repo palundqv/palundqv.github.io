@@ -3,6 +3,7 @@ AFRAME.registerComponent('button', {
   schema: {
     label: {default: 'label'},
     width: {default: 0.11},
+    model: {default: ''}, // Add a model property to the schema
     toggleable: {default: false}
   },
   init: function () {
@@ -10,17 +11,23 @@ AFRAME.registerComponent('button', {
     var labelEl = this.labelEl = document.createElement('a-entity');
 
     this.color = '#3a50c5';
-    el.setAttribute('geometry', {
-      primitive: 'box',
-      width: this.data.width,
-      height: 0.05,
-      depth: 0.04
-    });
 
-    el.setAttribute('material', {color: this.color});
+    // Use the model if provided, otherwise fall back to default geometry
+    if (this.data.model) {
+      el.setAttribute('gltf-model', this.data.model);
+    } else {
+      el.setAttribute('geometry', {
+        primitive: 'box',
+        width: this.data.width,
+        height: 0.05,
+        depth: 0.04
+      });
+      el.setAttribute('material', {color: this.color});
+    }
+
     el.setAttribute('pressable', '');
 
-    labelEl.setAttribute('position', '0 0 0.02');
+    labelEl.setAttribute('position', '0 0 0.0025');
     labelEl.setAttribute('text', {
       value: this.data.label,
       color: 'white',
@@ -46,6 +53,9 @@ AFRAME.registerComponent('button', {
   update: function (oldData) {
     if (oldData.label !== this.data.label) {
       this.labelEl.setAttribute('text', 'value', this.data.label);
+    }
+    if (oldData.model !== this.data.model && this.data.model) {
+      this.el.setAttribute('gltf-model', this.data.model);
     }
   },
 
