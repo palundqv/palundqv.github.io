@@ -43,6 +43,7 @@
         <a-asset-item id="friesModel" src="models/friesModel/scene.gltf"></a-asset-item>
         <a-asset-item id="sodaCupModel" src="models/sodaCupFixed.glb"></a-asset-item>
         <a-asset-item id="menuButtonSmall" src="models/MenuButtonSmall.glb"></a-asset-item>
+        <a-asset-item id="menuButtonLarge" src="models/MenuButtonLarge.glb"></a-asset-item>
       </a-assets>
       <a-entity
         id="sodaCupGeometry"
@@ -73,10 +74,10 @@
       ></a-entity>
       <a-entity id="menu" menu position="0 1.5 -0.5" rotation="-45 0 0" event-manager>
         <a-entity slider position="0 0.10 0"></a-entity>
-        <a-entity id="burgerButton" button="label: Burger" position="0 0 0"></a-entity>
+        <a-entity id="burgerButton" button="label: Burger; model: #menuButtonSmall" position="0 0 0"></a-entity>
         <a-entity id="sodaCupButton" button="label: Soda; model: #menuButtonSmall" position="-0.15 0 0"></a-entity>
-        <a-entity id="friesButton" button="label: Fries" position="0.15 0 0"></a-entity>
-        <a-entity id="darkModeButton" button="label: Dark Mode; width: 0.20; toggleable: true" position="0 -0.10 0"></a-entity>
+        <a-entity id="friesButton" button="label: Fries; model: #menuButtonSmall" position="0.15 0 0"></a-entity>
+        <a-entity id="darkModeButton" button="label: Dark Mode; model: #menuButtonLarge; width: 0.20; toggleable: true" position="0 -0.10 0"></a-entity>
       </a-entity>
       <a-entity hand-tracking-controls="hand: left"></a-entity>
       <a-entity hand-tracking-controls="hand: right"></a-entity>

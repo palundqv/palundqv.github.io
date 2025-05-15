@@ -3,14 +3,15 @@ AFRAME.registerComponent('button', {
   schema: {
     label: {default: 'label'},
     width: {default: 0.11},
-    model: {default: ''}, // Add a model property to the schema
-    toggleable: {default: false}
+    model: {default: ''},
+    toggleable: {default: false},
+    color: {default: '#3a50c5'} // Add a color property to the schema
   },
   init: function () {
     var el = this.el;
     var labelEl = this.labelEl = document.createElement('a-entity');
 
-    this.color = '#3a50c5';
+    this.color = this.data.color;
 
     // Use the model if provided, otherwise fall back to default geometry
     if (this.data.model) {
@@ -50,17 +51,37 @@ AFRAME.registerComponent('button', {
     this.onPressedEnded = this.onPressedEnded.bind(this);
   },
 
+  updateModelMaterial: function () {
+    const model = this.el.getObject3D('mesh');
+    if (model) {
+      model.traverse((node) => {
+        if (node.isMesh) {
+          node.material.color.set(this.color); // Set the material color
+        }
+      });
+    }
+  },
+
   update: function (oldData) {
     if (oldData.label !== this.data.label) {
       this.labelEl.setAttribute('text', 'value', this.data.label);
     }
     if (oldData.model !== this.data.model && this.data.model) {
       this.el.setAttribute('gltf-model', this.data.model);
+      this.el.addEventListener('model-loaded', () => {
+        this.updateModelMaterial();
+      });
+    }
+    if (oldData.color !== this.data.color) {
+      this.color = this.data.color;
+      this.updateModelMaterial();
     }
   },
 
   stateChanged: function () {
     var color = this.el.is('pressed') ? 'green' : this.color;
+    this.color = color;
+    this.updateModelMaterial();
     this.el.setAttribute('material', {color: color});
   },
 
