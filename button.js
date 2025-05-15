@@ -79,7 +79,7 @@ AFRAME.registerComponent('button', {
   },
 
   stateChanged: function () {
-    var color = this.el.is('pressed') ? 'green' : this.color;
+    var color = this.el.is('pressed') ? 'green' : '#3a50c5';
     this.color = color;
     this.updateModelMaterial();
     this.el.setAttribute('material', {color: color});
