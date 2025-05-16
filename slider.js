@@ -17,7 +17,7 @@ AFRAME.registerComponent('slider', {
     });
 
     trackEl.setAttribute('material', {
-      color: 'white'
+      color: 'gray'
     });
 
     this.el.appendChild(trackEl);

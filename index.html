@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Hand Tracking! • A-Frame</title>
     <meta name="description" content="Hand Tracking A-Frame">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.5.x/dist/aframe-environment-component.min.js"></script>
     <script src="pinchable.js"></script>
@@ -14,36 +15,17 @@
     <script src="menu.js"></script>
     <script src="pressable.js"></script>
     <script src="event-manager.js"></script>
-    <style>
-      #enterExperienceButton {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 20px 40px;
-        font-size: 24px;
-        background-color: #007BFF;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        z-index: 1000;
-      }
-
-      #enterExperienceButton:hover {
-        background-color: #0056b3;
-      }
-    </style>
   </head>
   <body>
-    <button id="enterExperienceButton">Enter Experience</button>
+    <button id="enterExperienceButton" >Enter Experience</button>
     <a-scene environment device-orientation-permission-ui="enabled: false" vr-mode-ui="enabled: false">
       <a-assets>
-        <a-asset-item id="bigMacModel" src="models/bigMac.gltf"></a-asset-item>
-        <a-asset-item id="friesModel" src="models/friesModel/scene.gltf"></a-asset-item>
+        <a-asset-item id="bigMacModel" src="models/newHamburger.glb"></a-asset-item>
+        <a-asset-item id="friesModel" src="models/newFries.glb"></a-asset-item>
         <a-asset-item id="sodaCupModel" src="models/sodaCupFixed.glb"></a-asset-item>
         <a-asset-item id="menuButtonSmall" src="models/MenuButtonSmall.glb"></a-asset-item>
         <a-asset-item id="menuButtonLarge" src="models/MenuButtonLarge.glb"></a-asset-item>
+        <a-assets-item id="redesignedMenu" src="models/newMenu.glb"></a-assets-item>
       </a-assets>
       <a-entity
         id="sodaCupGeometry"
@@ -72,8 +54,8 @@
         rotation="0 180 0"
         visible="false"
       ></a-entity>
-      <a-entity id="menu" menu position="0 1.5 -0.5" rotation="-45 0 0" event-manager>
-        <a-entity slider position="0 0.10 0"></a-entity>
+      <a-entity id="menu" menu="model: #redesignedMenu" position="0 1.5 -0.5" rotation="-45 0 0" event-manager>
+        <a-entity slider position="0 0.1 -0.01"></a-entity>
         <a-entity id="burgerButton" button="label: Burger; model: #menuButtonSmall" position="0 0 0"></a-entity>
         <a-entity id="sodaCupButton" button="label: Soda; model: #menuButtonSmall" position="-0.15 0 0"></a-entity>
         <a-entity id="friesButton" button="label: Fries; model: #menuButtonSmall" position="0.15 0 0"></a-entity>
