@@ -5,7 +5,7 @@ AFRAME.registerComponent('button', {
     width: {default: 0.11},
     model: {default: ''},
     toggleable: {default: false},
-    color: {default: '#3a50c5'} // Add a color property to the schema
+    color: {default: '#537af7'} // Add a color property to the schema
   },
   init: function () {
     var el = this.el;
@@ -79,7 +79,7 @@ AFRAME.registerComponent('button', {
   },
 
   stateChanged: function () {
-    var color = this.el.is('pressed') ? 'green' : '#3a50c5';
+    var color = this.el.is('pressed') ? '#0fff1b' : '#3a50c5';
     this.color = color;
     this.updateModelMaterial();
     this.el.setAttribute('material', {color: color});
@@ -87,7 +87,7 @@ AFRAME.registerComponent('button', {
 
   onPressedStarted: function () {
     var el = this.el;
-    el.setAttribute('material', {color: 'green'});
+    el.setAttribute('material', {color: '#0fff1b'});
     el.emit('click');
     if (this.data.toggleable) {
       if (el.is('pressed')) {

@@ -1,7 +1,7 @@
 /* global AFRAME */
 AFRAME.registerComponent('color-change', {
   schema: {
-    color: { default: 'green' }
+    color: { default: '#0fff1b' }
   },
 
   init: function () {
